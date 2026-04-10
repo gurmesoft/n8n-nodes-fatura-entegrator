@@ -1,11 +1,11 @@
-import {
+import type {
 	IDataObject,
 	INodeType,
 	INodeTypeDescription,
 	IWebhookFunctions,
 	IWebhookResponseData,
-	NodeConnectionType,
 } from 'n8n-workflow';
+import { NodeConnectionType } from 'n8n-workflow';
 
 export class FaturaEntegratorTrigger implements INodeType {
 	description: INodeTypeDescription = {

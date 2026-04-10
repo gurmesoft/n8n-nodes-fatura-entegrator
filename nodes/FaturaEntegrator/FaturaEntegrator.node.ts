@@ -1,12 +1,14 @@
-import {
+import type {
 	IExecuteFunctions,
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-	NodeOperationError,
-	NodeConnectionType,
 	ILoadOptionsFunctions,
 	INodePropertyOptions,
+} from 'n8n-workflow';
+import {
+	NodeOperationError,
+	NodeConnectionType,
 	ApplicationError,
 } from 'n8n-workflow';
 
