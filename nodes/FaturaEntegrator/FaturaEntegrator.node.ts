@@ -5,10 +5,10 @@ import type {
 	INodeTypeDescription,
 	ILoadOptionsFunctions,
 	INodePropertyOptions,
+	NodeConnectionType,
 } from 'n8n-workflow';
 import {
 	NodeOperationError,
-	NodeConnectionType,
 	ApplicationError,
 } from 'n8n-workflow';
 
@@ -35,8 +35,8 @@ export class FaturaEntegrator implements INodeType {
 		defaults: {
 			name: 'Fatura Entegratör ',
 		},
-		inputs: [NodeConnectionType.Main],
-		outputs: [NodeConnectionType.Main],
+		inputs: ['main'] as NodeConnectionType[],
+		outputs: ['main'] as NodeConnectionType[],
 		credentials: [
 			{
 				name: 'faturaEntegratorApi',
