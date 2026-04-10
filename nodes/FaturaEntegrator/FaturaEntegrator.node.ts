@@ -33,7 +33,7 @@ export class FaturaEntegrator implements INodeType {
 		description: 'Interact with Fatura Entegratör API for invoice management',
 		documentationUrl: 'https://dev.faturaentegrator.com',
 		defaults: {
-			name: 'Fatura Entegratör',
+			name: 'Fatura Entegratör ',
 		},
 		inputs: [NodeConnectionType.Main],
 		outputs: [NodeConnectionType.Main],
