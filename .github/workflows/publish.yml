@@ -1,0 +1,49 @@
+# This workflow publishes the package to npm with provenance.
+# It is triggered when a new tag matching v*.*.* is pushed.
+#
+# Setup (one-time):
+#   Option A – Trusted Publishers (recommended, no token needed):
+#     1. Go to npmjs.com → your package → Settings → Publish access → Trusted Publishers
+#     2. Click "Add a publisher" → select "GitHub Actions"
+#     3. Fill in: owner = gurmesoft, repo = n8n-nodes-fatura-entegrator, workflow = publish.yml
+#
+#   Option B – NPM Token:
+#     1. Create a Granular Access Token on npmjs.com
+#     2. Add it as NPM_TOKEN in your repo's Actions secrets
+
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Publish with provenance
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
