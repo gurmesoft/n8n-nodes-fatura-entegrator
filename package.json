@@ -23,7 +23,7 @@
     "url": "https://github.com/sponsors/gurmesoft"
   },
   "engines": {
-    "node": ">=20.15"
+    "node": ">=22.0"
   },
   "main": "index.js",
   "scripts": {
